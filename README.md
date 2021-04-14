@@ -1,2 +1,2 @@
-# socket TCP
+# TCP socket
 Servidor básico utilizando socket TCP
