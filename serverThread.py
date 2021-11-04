@@ -9,7 +9,7 @@ server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Cria socket utiliz
 
 server.bind((bind_ip, bind_port))  # Atribui ao socket endereço e porta de conexão
 
-server.listen(5)  # Define que o servidor está pronto para receber conexões com no máximo 5
+server.listen(10)  # Define que o servidor está pronto para receber conexões com no máximo 5
 
 print("[*] Listening on", bind_ip, ":", bind_port)  # Imprime os endereços IP e Porta que o servidor está sendo executado
 
