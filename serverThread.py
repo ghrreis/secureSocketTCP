@@ -17,7 +17,7 @@ print("[*] Listening on", bind_ip, ":", bind_port)  # Imprime os endereços IP e
 def handle_client(client_socket):
     request = client_socket.recv(8192)  # Recebe dados do socket remoto em um determinado tamanho de buffer
 
-    # Converte a mensagem de byte para string e imprime a mensagem recebida separa por espaços em branco
+    # Converte a mensagem de byte para string e imprime a mensagem recebida separada por espaços em branco
     print("[*] Received:", str(request, "utf-8").split(" "))
 
     # Executa o comando no terminal do SO e retorna o resultado
