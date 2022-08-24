@@ -1,0 +1,4 @@
+gnome-calculator
+ls
+ls -lah
+pstree

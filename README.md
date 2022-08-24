@@ -5,7 +5,7 @@ Aplicação cliente/servidor onde o cliente envia comandos de terminal ao servid
 python serverThread.py
 
 ## Execução do programa cliente
-python client.py 127.0.0.1 "ls -l"
+python client.py usuario senha 127.0.0.1 "ls -l"
 
 ## Resultado de retorno do servidor
 total 52
