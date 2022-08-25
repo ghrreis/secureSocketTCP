@@ -3,6 +3,7 @@ import socket
 from datetime import datetime
 from Log import Logs
 from Auth import Authentication
+from Commands import CMDs
 
 bind_ip = "0.0.0.0"  # Aceita conexão de qualquer origem
 bind_port = 9999  # Porta que o servidor "escuta"
@@ -35,13 +36,20 @@ def handle_client(client_socket, addr):
         auth = Authentication(cmd[0], cmd[1])
         # Verifica se a autenticação foi efetuada com sucesso
         if auth.auth():
-            # Gera o log do comando recebido do cliente
-            log = Logs(data + ':' + hora + ':' + addr[0] + ':' + cmd[0] + ':' + ' '.join(cmd[2:]))
-            log.saveLog()
+            command = CMDs(' '.join(cmd[2:]))  # Envia commando para validação
+            # Verifica se o comando é válido
+            if command.status() == 1:  # Se for verdadeiro executa o comando
+                # Gera o log do comando recebido do cliente
+                log = Logs(data + ':' + hora + ':' + addr[0] + ':' + cmd[0] + ':' + ' '.join(cmd[2:]))
+                log.saveLog()
 
-            # Executa o comando no terminal do SO e retorna o resultado
-            result = subprocess.run(cmd[2:], stdout=subprocess.PIPE)
-            client_socket.send(result.stdout)  # Envia conjunto de bytes (mensagens) para o socket remoto
+                # Executa o comando no terminal do SO e retorna o resultado
+                result = subprocess.run(cmd[2:], stdout=subprocess.PIPE)
+                client_socket.send(result.stdout)  # Envia conjunto de bytes (mensagens) para o socket remoto
+            else: # Se for falso não executa o comando
+                log = Logs(data + ':' + hora + ':' + addr[0] + ':' + cmd[0] + ':' + ' '.join(cmd[2:]) + ':' +
+                           'Comando não permitido')
+                log.saveLog()
         else:
             # Gera o log de erro de autenticação
             log = Logs(data + ':' + hora + ':' + addr[0] + ':' + cmd[0] + ':' + 'Erro de autenticação')
