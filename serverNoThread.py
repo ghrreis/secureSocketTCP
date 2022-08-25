@@ -50,6 +50,7 @@ def handle_client(client_socket, addr):
                 log = Logs(data + ':' + hora + ':' + addr[0] + ':' + cmd[0] + ':' + ' '.join(cmd[2:]) + ':' +
                            'Comando não permitido')
                 log.saveLog()
+                client_socket.send("Comando não permitido".encode())  # Envia conjunto de bytes (mensagens) para o socket remoto
         else:
             # Gera o log de erro de autenticação
             log = Logs(data + ':' + hora + ':' + addr[0] + ':' + cmd[0] + ':' + 'Erro de autenticação')
