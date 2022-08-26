@@ -1,6 +1,11 @@
 # TCP socket
 Aplicação cliente/servidor onde o cliente envia comandos de terminal ao servidor para ser executado no SO e devolver a resposta ao cliente.
 
+## Instalação das bibliotecas necessárias
+pip install pam
+
+pip install six
+
 ## Execução do programa servidor
 python serverThread.py
 
