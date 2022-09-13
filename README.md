@@ -34,6 +34,4 @@ total 52
 
 -rw-rw-r-- 1 gustavo gustavo   155 nov  3 23:55 README.md
 
--rw-rw-r-- 1 gustavo gustavo  1584 abr 13  2021 serverNoThread.py
-
 -rw-rw-r-- 1 gustavo gustavo  1713 nov  3 23:58 serverThread.py
