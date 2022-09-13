@@ -1,4 +1,5 @@
 gnome-calculator
 ls
+ls -l
 ls -lah
 pstree
