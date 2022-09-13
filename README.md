@@ -1,6 +1,7 @@
-# TCP socket
+# TCP Secure Socket
 Aplicação cliente/servidor onde o cliente envia comandos de terminal ao servidor para ser executado no SO e devolver a resposta ao cliente.
 
+Toda a comunicação é feita de forma criptografada
 ## Instalação das bibliotecas necessárias
 pip install pam
 
