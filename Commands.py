@@ -1,4 +1,5 @@
 # Classe para validação de comandos permitidos
+
 class CMDs():
 
     __command = ""

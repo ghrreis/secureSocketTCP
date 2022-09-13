@@ -1,3 +1,4 @@
+# Programa cliente
 import json
 import socket
 import sys
@@ -13,12 +14,10 @@ def receive_keys(key, addr):
 if sys.argv[1] == "generate":
     security = Security("client")
     security.generate()
-    #print(security.encrypt("Olá mundo"))
 elif sys.argv[1] == "transmit":
     target_host = sys.argv[2]  # IP do servidor
     target_port = 9999  # Porta de conexão com o servidor
     security = Security("client")
-    print(security.read_key().decode())
 
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Cria socket utilizando protocolo IPv4 e protocolo TCP
     client.connect((target_host, target_port))  # Conecta a um socket remoto passando os parâmetros host, porta

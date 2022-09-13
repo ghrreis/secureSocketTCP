@@ -10,9 +10,11 @@ class Security():
     __public_key = ""
     __private_key = ""
 
+    # Recebe o nome do arquivo que serão geradas ou lidas as chaves pública/privada
     def __init__(self, file_name):
         self.__file = file_name
 
+    # Gera as chaves pública/privada
     def generate(self):
         self.__public_key, self.__private_key = rsa.newkeys(2048)
         with open(self.__file+"_public.pem", "wb") as f:
@@ -21,6 +23,7 @@ class Security():
         with open(self.__file+"_private.pem", "wb") as f:
             f.write(self.__private_key.save_pkcs1("PEM"))
 
+    # Encripta a mensagem
     def encrypt(self, msg):
         self.__message = msg
         with open(self.__file+"_public.pem", "rb") as f:
@@ -28,6 +31,7 @@ class Security():
 
         return rsa.encrypt(self.__message.encode(), self.__public_key)
 
+    # Decriptografa a mensagem
     def decrypt(self, msg):
         self.__message = msg
         with open(self.__file+"_private.pem", "rb") as f:
@@ -35,6 +39,7 @@ class Security():
 
         return rsa.decrypt(self.__message, self.__private_key).decode()
 
+    # Lê a chave pública
     def read_key(self):
         with open(self.__file+"_public.pem", "rb") as f:
             public_key = f.read()
