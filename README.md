@@ -3,13 +3,7 @@ Aplicação cliente/servidor onde o cliente envia comandos de terminal ao servid
 
 Toda a comunicação é feita de forma criptografada
 ## Instalação das bibliotecas necessárias
-pip install pam
-
-pip install rsa
-
-pip install six
-
-pip install logging
+pip install pam rsa six logging
 
 ## Execução do programa servidor
 ### Gera as chaves pública/privada do servidor 
