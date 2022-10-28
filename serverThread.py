@@ -11,7 +11,7 @@ from Auth import Authentication
 from Commands import CMDs
 from Security import Security
 
-# Se argumento for igual a generate, gera as chaves públicas e privadas do servidor
+# Se argumento for igual a generate, gera as chaves pública e privada do servidor
 if sys.argv[1] == "generate":
     security = Security("server")
     security.generate()
