@@ -15,17 +15,17 @@ pip install logging
 
 ## Execução do programa servidor
 ### Gera as chaves pública/privada do servidor 
-python serverThread.py generate
+python serverThread.py **_generate_**
 ### Executa o servidor
-python serverThread.py run
+python serverThread.py **_run_**
 
 ## Execução do programa cliente
 ### Gera as chaves pública/privada do cliente
-python client.py generate
+python client.py **_generate_**
 ### Transmite a chave pública do cliente para o servidor e recebe a chave pública do servidor
-python client.py transmit
+python client.py **_transmit_**
 ### Envia usuário, senha e comando para ser executado no servidor
-python client.py send usuario senha 127.0.0.1 "ls -l"
+python client.py **_send_** usuario senha 127.0.0.1 "ls -l"
 
 ## Resultado de retorno do servidor
 total 52
